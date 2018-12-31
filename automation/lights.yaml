@@ -1,0 +1,18 @@
+- id: front_lights_on_at_night
+  alias: Turn front exterior lights on at night
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -01:00:00
+  action:
+  - service: light.turn_on
+    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
+
+- id: front_lights_off_late
+  alias: Turn front exterior lights off late at night
+  trigger:
+  - platform: time
+    at: '01:00:00'
+  action:
+  - service: light.turn_off
+    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
