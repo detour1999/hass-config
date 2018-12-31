@@ -1,0 +1,40 @@
+batteries:
+  name: Batteries
+  entities:
+    - sensor.basement_nest_protect_battery_health
+    - sensor.entry_hallway_nest_protect_downstairs_battery_health
+    - sensor.felixs_room_nest_protect_battery_health
+    - sensor.guest_room_nest_protect_battery_health
+    - sensor.milos_room_nest_protect_battery_health
+    - sensor.play_room_nest_protect_battery_health
+    - sensor.upstairs_hallway_nest_protect_upstairs_battery_health
+    - sensor.media_room_motion_battery
+    - sensor.upstairs_motion_battery
+    - sensor.utility_room_motion_battery
+    # Figure out how to get batter from door/window sensors
+
+signal:
+  name: Signal strength
+  entities:
+    - binary_sensor.basement_camera_online
+    - binary_sensor.front_door_camera_online
+    - binary_sensor.living_room_camera_online
+    - binary_sensor.office_camera_online
+    - binary_sensor.basement_nest_protect_online
+    - binary_sensor.entry_hallway_nest_protect_downstairs_online
+    - binary_sensor.entry_hallway_thermostat_online
+    - binary_sensor.felixs_room_nest_protect_online
+    - binary_sensor.guest_room_nest_protect_online
+    - binary_sensor.milos_room_nest_protect_online
+    - binary_sensor.play_room_nest_protect_online
+    - binary_sensor.upstairs_hallway_nest_protect_upstairs_online
+    - binary_sensor.upstairs_hallway_thermostat_upstairs_online
+
+hass:
+  name: Home assistant
+  entities:
+    - sensor.uptime
+
+
+
+

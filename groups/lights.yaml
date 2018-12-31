@@ -1,0 +1,231 @@
+all_lights_and_switches:
+  name: Switchables
+  entities:
+  - group.all_lights
+  - group.all_switches
+
+################################
+# Floors/Areas
+################################
+
+indoor_lights:
+  name: "Indoor Lights"
+  entities:
+  - group.basement_lights
+  - group.first_floor_lights
+  - group.second_floor_lights
+
+outdoor_lights:
+  name: "Outdoor Lights"
+  entities:
+  - group.back_yard_lights
+  - group.front_yard_lights
+
+
+basement_lights:
+  name: "Basement Lights"
+  entities:
+  - group.guest_bedroom_lights
+  - group.guest_bathroom_lights
+  - group.mediaroom_lights
+  - group.storageroom_lights
+  - group.utilityroom_lights
+
+first_floor_lights:
+  name: "First Floor Lights"
+  entities:
+  - group.office_lights
+  - group.family_room_lights
+  - group.kitchen_lights
+  - group.dining_room_lights
+  - group.entryway_lights
+  - group.living_room_lights
+
+second_floor_lights:
+  name: "Second Floor Lights"
+  entities:
+  - group.upstairs_hallway_lights
+  - group.milos_bedroom_lights
+  - group.felixs_bedroom_lights
+  - group.play_bedroom_lights
+  - group.master_bedroom_lights
+  - group.master_bathroom_lights
+
+back_yard_lights:
+  name: "Back Yard Lights"
+  entities:
+  - group.garage_lights
+  - group.studio_lights
+  - group.back_porch_lights
+
+front_yard_lights:
+  name: "Front Yard Lights"
+  entities:
+  - group.front_door_lights
+  - group.front_flood_lights
+
+
+################################
+# Virtual Rooms
+################################
+holiday_lights:
+  name: "Holiday Lights"
+  entities:
+    - light.living_room_holiday_lights
+    - switch.neo_coolcam_power_plug_12a_switch
+    - switch.ge_14284_outdoor_smart_switch_switch
+
+
+
+################################
+# Basement Rooms
+################################
+guest_bedroom_lights:
+  name: "Guest Bedroom Lights"
+  entities:
+    - light.guest_bedroom_main_lights
+
+guest_bathroom_lights:
+  name: "Guest Bathroom Lights"
+  entities:
+    - light.guest_bathroom_main_lights
+    - light.guest_bathroom_shower_lights
+
+mediaroom_lights:
+  name: "Media Room Lights"
+  entities:
+    - light.basement_sitting_area_accent_lights
+    - light.basement_sitting_area_main_lights
+    - light.basement_stairs_main_lights
+
+storageroom_lights:
+  name: "Storage Room Lights"
+  # entities:
+  #   -
+
+utilityroom_lights:
+  name: "Utility Room Lights"
+  # entities:
+  #   -
+
+
+################################
+# First Floor Rooms
+################################
+office_lights:
+  name: "Office Lights"
+  entities:
+    - light.study_main_lights
+
+family_room_lights:
+  name: "Family Room Lights"
+  entities:
+    - light.family_room_main_lights
+    - light.family_room_pendants
+    - switch.neo_coolcam_power_plug_12a_switch #holiday lights
+
+
+kitchen_lights:
+  name: "Kitchen Lights"
+  entities:
+    - light.kitchen_main_lights
+    - light.kitchen_sconces
+
+dining_room_lights:
+  name: "Dining Room Lights"
+  entities:
+    - light.dining_room_chandelier
+    - light.dining_room_sconces
+
+entryway_lights:
+  name: "Entryway Lights"
+  entities:
+    - light.front_foyer_main_lights
+
+living_room_lights:
+  name: "Living Room Lights"
+  entities:
+    - light.living_room_arco_lamp
+    - light.living_room_floor_lamp
+    - light.living_room_holiday_lights
+    - light.living_room_living_room
+
+
+################################
+# Second Floor Rooms
+################################
+
+upstairs_hallway_lights:
+  name: "Upstairs Hallway Lights"
+  entities:
+    - light.upstairs_hallway_main_lights
+milos_bedroom_lights:
+  name: "Milo's Bedroom Lights"
+  entities:
+    - light.milos_bedroom_main_lights
+    - light.milos_bedroom_sconces
+
+felixs_bedroom_lights:
+  name: "Felix's Bedroom Lights"
+  entities:
+    - light.felixs_bedroom_main_lights
+    - light.felixs_bedroom_sconces
+
+play_bedroom_lights:
+  name: "Playroom Lights"
+  entities:
+    - light.play_bedroom_sconces
+    - light.play_bedroom_table_lamps
+
+master_bedroom_lights:
+  name: "Master Bedroom Lights"
+  entities:
+    - light.master_bedroom_closet_light
+    - light.master_bedroom_hall_lights
+    - light.master_bedroom_main_lights
+    - light.master_bedroom_sconces
+
+master_bathroom_lights:
+  name: "Master Bathroom Lights"
+  entities:
+    - light.master_bathroom_main_lights
+    - light.master_bathroom_shower_lights
+    - light.master_bathroom_vanity_lights
+
+
+################################
+# Back Yard Rooms
+################################
+
+garage_lights:
+  name: "Garage Lights"
+  entities:
+    - light.linear_lb60z1_dimmable_led_light_bulb_level_3
+
+studio_lights:
+  name: "Studio Lights"
+  entities:
+    - light.linear_lb60z1_dimmable_led_light_bulb_level_2
+
+back_porch_lights:
+  name: "Back Porch Lights"
+  entities:
+    - light.exterior_sconces
+    - light.exterior_string_lights
+
+
+################################
+# Front Yard Rooms
+################################
+
+front_door_lights:
+  name: "Front Door Lights"
+  entities:
+    - light.linear_lb60z1_dimmable_led_light_bulb_level
+
+front_flood_lights:
+  name: "Front FLood Lights"
+  entities:
+    - switch.ge_14284_outdoor_smart_switch_switch
+
+

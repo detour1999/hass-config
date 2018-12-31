@@ -1,0 +1,12 @@
+sensor.vision_zp3111_multisensor_4in1_relative_humidity:
+  device_class: humidity
+  friendly_name: Utility room humidity
+sensor.vision_zp3111_multisensor_4in1_temperature:
+  friendly_name: Utility room temp
+sensor.vision_zp3111_multisensor_4in1_relative_humidity_2:
+  device_class: humidity
+  friendly_name: Master bedroom humidity
+sensor.vision_zp3111_multisensor_4in1_temperature_2:
+  friendly_name: Master bedroom temp
+sensor.vision_zp3102_pir_motion_sensor_temperature:
+  friendly_name: Media room temp
