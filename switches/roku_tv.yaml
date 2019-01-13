@@ -9,13 +9,13 @@ switch:
     switches:
       # toggles family room Roku TV
       family_room_tv_power:
-        command_on: !family_room_roku_tv_command_on
-        command_off: !family_room_roku_tv_command_off
-        command_state: !family_room_roku_tv_command_state
+        command_on: !secret family_room_roku_tv_command_on
+        command_off: !secret family_room_roku_tv_command_off
+        command_state: !secret family_room_roku_tv_command_state
         value_template: '{{ value == "ON" }}'
       # toggles family room Roku TV
       media_room_tv_power:
-        command_on: !media_room_roku_tv_command_on
-        command_off: !media_room_roku_tv_command_off
-        command_state: !media_room_roku_tv_command_state
+        command_on: !secret media_room_roku_tv_command_on
+        command_off: !secret media_room_roku_tv_command_off
+        command_state: !secret media_room_roku_tv_command_state
         value_template: '{{ value == "ON" }}'
