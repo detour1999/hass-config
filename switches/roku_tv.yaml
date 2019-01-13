@@ -1,5 +1,4 @@
 # roku TV switches!
-switch:
   - platform: command_line
     # secrets need to be defined like so for each roku tv
     # this is a sad workaround for not being able to just have the IP in the secrets
