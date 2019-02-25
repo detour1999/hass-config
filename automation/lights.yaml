@@ -16,3 +16,79 @@
   action:
   - service: light.turn_off
     entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
+
+
+- id: entry_lights_on_after_unlock_day
+  alias: Turn entry lights on when unlocked day
+  trigger:
+    - platform: state
+      entity_id: lock.schlage_be469_touchscreen_deadbolt_locked_3
+      to: unlocked
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+          before: sunset
+      - condition: sun
+          after: sunrise
+      - condition: numeric_state
+          entity_id: light.front_foyer_main_lights
+          value_template: '{% if states.light.front_foyer_main_lights.state == "on"  %}{{ states.light.front_foyer_main_lights.attributes.brightness }}{% else %}0{% endif %}'
+          below: 150
+    action:
+    - service: light.turn_on
+      entity_id:
+        - light.front_foyer_main_lights
+      brightness:
+        - 255
+
+
+- id: entry_lights_on_after_unlock_night
+  alias: Turn entry lights on when unlocked night
+  trigger:
+    - platform: state
+      entity_id: lock.schlage_be469_touchscreen_deadbolt_locked_3
+      to: unlocked
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+          entity_id: light.front_foyer_main_lights
+          value_template: '{% if states.light.front_foyer_main_lights.state == "on"  %}{{ states.light.front_foyer_main_lights.attributes.brightness }}{% else %}0{% endif %}'
+          below: 80
+      - condition: or
+          conditions:
+            - condition: sun
+                after: sunset
+            - condition: sun
+                before: sunrise
+
+    action:
+    - service: light.turn_on
+      entity_id:
+        - light.front_foyer_main_lights
+      brightness:
+        - 100
+
+
+- id: turn_on_all_backyard_sconces_with_house_sconces
+  alias: Turn on all backyard sconces with house sconces
+  trigger:
+    - platform: state
+      entity_id: light.exterior_sconces
+      to: "on"
+  action:
+  - service: light.turn_on
+    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2
+    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_3
+
+- id: turn_off_all_backyard_sconces_with_house_sconces
+  alias: Turn off all backyard sconces with house sconces
+  trigger:
+    - platform: state
+      entity_id: light.exterior_sconces
+      to: "off"
+  action:
+  - service: light.turn_off
+    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2
+    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_3

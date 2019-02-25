@@ -14,7 +14,6 @@
       source: 'kids bedtime music'
 
 
-
 - id: pause_kids_bedtime_music
   alias: Stop playing kids bedtime music
   trigger:
@@ -31,6 +30,36 @@
   trigger:
   - platform: time
     at: '02:20:00'
+  action:
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.master_bedroom
+
+- id: pause_master_bedtime_music_1
+  alias: Stop playing master bedtime music 1
+  trigger:
+  - platform: time
+    at: '02:50:00'
+  action:
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.master_bedroom
+
+- id: pause_master_bedtime_music_2
+  alias: Stop playing master bedtime music 2
+  trigger:
+  - platform: time
+    at: '03:20:00'
+  action:
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.master_bedroom
+
+- id: pause_master_bedtime_music_3
+  alias: Stop playing master bedtime music 3
+  trigger:
+  - platform: time
+    at: '04:20:00'
   action:
   - service: media_player.turn_off
     data:
