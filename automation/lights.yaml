@@ -39,8 +39,8 @@
     - service: light.turn_on
       entity_id:
         - light.front_foyer_main_lights
-      brightness:
-        - 255
+      data:
+        brightness: 255
 
 
 - id: entry_lights_on_after_unlock_night
@@ -67,8 +67,8 @@
     - service: light.turn_on
       entity_id:
         - light.front_foyer_main_lights
-      brightness:
-        - 100
+      data:
+        brightness: 100
 
 
 - id: turn_on_all_backyard_sconces_with_house_sconces
