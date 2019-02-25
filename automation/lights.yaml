@@ -28,13 +28,13 @@
     condition: and
     conditions:
       - condition: sun
-          before: sunset
+        before: sunset
       - condition: sun
-          after: sunrise
+        after: sunrise
       - condition: numeric_state
-          entity_id: light.front_foyer_main_lights
-          value_template: '{% if states.light.front_foyer_main_lights.state == "on"  %}{{ states.light.front_foyer_main_lights.attributes.brightness }}{% else %}0{% endif %}'
-          below: 150
+        entity_id: light.front_foyer_main_lights
+        value_template: '{% if states.light.front_foyer_main_lights.state == "on"  %}{{ states.light.front_foyer_main_lights.attributes.brightness }}{% else %}0{% endif %}'
+        below: 150
     action:
     - service: light.turn_on
       entity_id:
@@ -53,15 +53,15 @@
     condition: and
     conditions:
       - condition: numeric_state
-          entity_id: light.front_foyer_main_lights
-          value_template: '{% if states.light.front_foyer_main_lights.state == "on"  %}{{ states.light.front_foyer_main_lights.attributes.brightness }}{% else %}0{% endif %}'
-          below: 80
+        entity_id: light.front_foyer_main_lights
+        value_template: '{% if states.light.front_foyer_main_lights.state == "on"  %}{{ states.light.front_foyer_main_lights.attributes.brightness }}{% else %}0{% endif %}'
+        below: 80
       - condition: or
           conditions:
             - condition: sun
-                after: sunset
+              after: sunset
             - condition: sun
-                before: sunrise
+              before: sunrise
 
     action:
     - service: light.turn_on
