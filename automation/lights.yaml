@@ -79,8 +79,9 @@
       to: "on"
   action:
   - service: light.turn_on
-    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2
-    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_3
+    entity_id: 
+    - light.linear_lb60z1_dimmable_led_light_bulb_level_2
+    - light.linear_lb60z1_dimmable_led_light_bulb_level_3
 
 - id: turn_off_all_backyard_sconces_with_house_sconces
   alias: Turn off all backyard sconces with house sconces
@@ -90,5 +91,6 @@
       to: "off"
   action:
   - service: light.turn_off
-    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2
-    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_3
+    entity_id: 
+    - light.linear_lb60z1_dimmable_led_light_bulb_level_2
+    - light.linear_lb60z1_dimmable_led_light_bulb_level_3
