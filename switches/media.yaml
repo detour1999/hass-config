@@ -3,6 +3,5 @@
     switches:
       # turns off retropie
       turn_off_retropie:
-        command_off: 'ssh retropie "sudo /sbin/shutdown -f now"'
-        command_state: 'ping retropie | echo $?'
-        value_template: '{{ value == "0" }}'
+        command_off: 'ssh retropie sudo shutdown now'
+        command_state: 'ping retropie -c1 ; echo $?'

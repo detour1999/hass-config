@@ -74,7 +74,7 @@
   action:
   - service: switch.turn_off
     entity_id: 
-    - switch.honeywell_unknown_type5052_id3033_switch_2
+    - switch.honeywell_unknown_type5052_id3033_switch
   - delay:
       minutes: 2
 
