@@ -1,0 +1,8 @@
+
+#check to see if the retropie is running or not
+
+  - platform: ping
+    host: retropie
+    name: retropie_binary_sensor
+    count: 1
+    scan_interval: 30
