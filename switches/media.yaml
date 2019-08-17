@@ -5,4 +5,4 @@
       retropie:
         command_off: 'ssh retropie sudo shutdown now'
         command_state: 'ping retropie -c1 ; echo $?'
-        value_template: “{{ is_state(‘binary_sensor.retropie’, ‘on’) }}”
+        value_template: "{{ is_state('binary_sensor.retropie', 'on') }}"
