@@ -1,0 +1,8 @@
+#  switches!
+  - platform: command_line
+    switches:
+      # turns off retropie
+      turn_off_retropie:
+        command_off: 'ssh retropie "sudo /sbin/shutdown -f now"'
+        command_state: 'ping retropie | echo $?'
+        value_template: '{{ value == "0" }}'
