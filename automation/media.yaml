@@ -64,3 +64,17 @@
   - service: media_player.turn_off
     data:
       entity_id: media_player.master_bedroom
+
+- id: turn_off_retropie_switch_when_retropie_turned_off
+  alias: Turn off retropie switch when retropie turned off
+  trigger:
+    - platform: state
+      entity_id: switch.turn_off_retropie
+      to: "off"
+  action:
+  - service: switch.turn_off
+    entity_id: 
+    - switch.honeywell_unknown_type5052_id3033_switch_2
+  - delay:
+      minutes: 2
+
