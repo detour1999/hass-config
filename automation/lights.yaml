@@ -91,3 +91,62 @@
     entity_id: 
     - light.linear_lb60z1_dimmable_led_light_bulb_level_2
     - light.linear_lb60z1_dimmable_led_light_bulb_level_3
+
+
+- id: entry_hallway_lights_with_motion_day
+  alias: Turn on entry hallway lights when the motion is detected during day
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.entry_hallway_motion
+    to: 'on'
+  condition:
+    condition: time
+    after: '07:30'
+    before: '23:30'
+  action:
+  - service: homeassistant.turn_on
+    entity_id: light.entry_hallway_sconce
+    data:
+      brightness: 150
+  - service: homeassistant.turn_on
+    entity_id: light.front_foyer_main_lights
+
+- id: entry_hallway_lights_with_motion_night
+  alias: Turn on entry hallway lights when the motion is detected at night
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.entry_hallway_motion
+    to: 'on'
+  condition:
+    condition: or
+    conditions:
+    - condition: time
+      after: '22:00'
+    - condition: time
+      before: '06:00'
+  action:
+  - service: homeassistant.turn_on
+    data:
+      entity_id:
+        - light.entry_hallway_sconce
+        - light.front_foyer_main_lights
+      brightness: 30
+  - service: timer.start
+    data:
+      entity_id: timer.hallway
+
+- id: entry_hallway_lights_with_motion
+  alias: Turn off entry hallway lights 10 minutes after trigger
+  trigger:
+    platform: state
+    entity_id: binary_sensor.entry_hallway_motion
+    to: 'off'
+    for:
+      minutes: 10
+  action:
+    service: homeassistant.turn_off
+    data:
+      entity_id:
+        - light.entry_hallway_sconce
+        - light.front_foyer_main_lights
+      transition: 160
