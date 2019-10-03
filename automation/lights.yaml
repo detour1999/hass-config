@@ -6,7 +6,7 @@
     offset: -01:00:00
   action:
   - service: light.turn_on
-    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
+    entity_id: light.light_front_entry_exterior
 
 - id: front_lights_off_late
   alias: Turn front exterior lights off late at night
@@ -15,14 +15,14 @@
     at: '01:00:00'
   action:
   - service: light.turn_off
-    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
+    entity_id: light.light_front_entry_exterior
 
 
 - id: entry_lights_on_after_unlock_day
   alias: Turn entry lights on when unlocked day
   trigger:
     - platform: state
-      entity_id: lock.schlage_be469_touchscreen_deadbolt_locked_3
+      entity_id: lock.lock_front_entry
       to: unlocked
   condition:
     condition: and
@@ -46,7 +46,7 @@
   alias: Turn entry lights on when unlocked night
   trigger:
   - platform: state
-    entity_id: lock.schlage_be469_touchscreen_deadbolt_locked_3
+    entity_id: lock.lock_front_entry
     to: unlocked
   condition:
     condition: and
@@ -77,8 +77,8 @@
   action:
   - service: light.turn_on
     entity_id: 
-    - light.linear_lb60z1_dimmable_led_light_bulb_level_2
-    - light.linear_lb60z1_dimmable_led_light_bulb_level_3
+    - light.light_studio_exterior
+    - light.light_garage_exterior
 
 - id: turn_off_all_backyard_sconces_with_house_sconces
   alias: Turn off all backyard sconces with house sconces
@@ -89,8 +89,8 @@
   action:
   - service: light.turn_off
     entity_id: 
-    - light.linear_lb60z1_dimmable_led_light_bulb_level_2
-    - light.linear_lb60z1_dimmable_led_light_bulb_level_3
+    - light.light_studio_exterior
+    - light.light_garage_exterior
 
 
 - id: entry_hallway_lights_with_motion_day
