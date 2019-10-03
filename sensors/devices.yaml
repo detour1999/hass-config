@@ -1,60 +1,60 @@
 - platform: template
   sensors:
     utility_room_motion_battery:
-      value_template: "{{ states.zwave.vision_zp3111_multisensor_4in1.attributes.battery_level }}"
+      value_template: "{{ states.zwave.sensor_multi_utility_room.attributes.battery_level }}"
       friendly_name: "Utility room motion sensor battery"
-      entity_id: zwave.vision_zp3111_multisensor_4in1
+      entity_id: zwave.sensor_multi_utility_room
       unit_of_measurement: '%'
     upstairs_motion_battery:
-      value_template: "{{ states.zwave.vision_zp3111_multisensor_4in1_2.attributes.battery_level }}"
+      value_template: "{{ states.zwave.sensor_multi_master_hall.attributes.battery_level }}"
       friendly_name: "Upstairs motion sensor battery"
-      entity_id: zwave.vision_zp3111_multisensor_4in1_2
+      entity_id: zwave.sensor_multi_master_hall
       unit_of_measurement: '%'
     media_room_motion_battery:
-      value_template: "{{ states.zwave.vision_zp3102_pir_motion_sensor.attributes.battery_level }}"
+      value_template: "{{ states.zwave.sensor_multi_front_hall.attributes.battery_level }}"
       friendly_name: "Media room motion sensor battery"
-      entity_id: zwave.vision_zp3102_pir_motion_sensor
+      entity_id: zwave.sensor_multi_front_hall
       unit_of_measurement: '%'
     front_door_lock_battery:
-      value_template: "{{ states.zwave.schlage_be469_touchscreen_deadbolt_6.attributes.battery_level }}"
+      value_template: "{{ states.zwave.lock_front_entry.attributes.battery_level }}"
       friendly_name: "Front door lock battery"
-      entity_id: zwave.schlage_be469_touchscreen_deadbolt_6
+      entity_id: zwave.lock_front_entry
       unit_of_measurement: '%'
 
     front_door_sensor_battery:
-      value_template: "{{ states.zwave.hank_hkzwdws01_doorwindow_sensor_5.attributes.battery_level }}"
+      value_template: "{{ states.zwave.door_sensor_front_entry_door.attributes.battery_level }}"
       friendly_name: "Front door sensor battery"
-      entity_id: zwave.hank_hkzwdws01_doorwindow_sensor_5
+      entity_id: zwave.door_sensor_front_entry_door
       unit_of_measurement: '%'
     basement_door_sensor_battery:
-      value_template: "{{ states.zwave.hank_hkzwdws01_doorwindow_sensor_7.attributes.battery_level }}"
+      value_template: "{{ states.zwave.door_sensor_basement_door.attributes.battery_level }}"
       friendly_name: "Basement door sensor battery"
-      entity_id: zwave.hank_hkzwdws01_doorwindow_sensor_7
+      entity_id: zwave.door_sensor_basement_door
       unit_of_measurement: '%'
     garage_person_door_sensor_battery:
-      value_template: "{{ states.zwave.hank_hkzwdws01_doorwindow_sensor_8.attributes.battery_level }}"
+      value_template: "{{ states.zwave.door_sensor_garage_person_door.attributes.battery_level }}"
       friendly_name: "Garage person door sensor battery"
-      entity_id: zwave.hank_hkzwdws01_doorwindow_sensor_8
+      entity_id: zwave.door_sensor_garage_person_door
       unit_of_measurement: '%'
     studio_person_door_sensor_battery:
-      value_template: "{{ states.zwave.hank_hkzwdws01_doorwindow_sensor_9.attributes.battery_level }}"
+      value_template: "{{ states.zwave.door_sensor_studio_person_door.attributes.battery_level }}"
       friendly_name: "Studio person door sensor battery"
-      entity_id: zwave.hank_hkzwdws01_doorwindow_sensor_9
+      entity_id: zwave.door_sensor_studio_person_door
       unit_of_measurement: '%'
 
     family_room_door_sensor_battery:
-      value_template: "{{ states.zwave.ecolink_doorwindow_sensor.attributes.battery_level }}"
+      value_template: "{{ states.zwave.door_sensor_family_room_door.attributes.battery_level }}"
       friendly_name: "Family room door sensor battery"
-      entity_id: zwave.ecolink_doorwindow_sensor
+      entity_id: zwave.door_sensor_family_room_door
       unit_of_measurement: '%'
     office_door_sensor_battery:
-      value_template: "{{ states.zwave.ecolink_doorwindow_sensor_2.attributes.battery_level }}"
+      value_template: "{{ states.zwave.door_sensor_office_door.attributes.battery_level }}"
       friendly_name: "Office door sensor battery"
-      entity_id: zwave.ecolink_doorwindow_sensor_2
+      entity_id: zwave.door_sensor_office_door
       unit_of_measurement: '%'
     living_room_door_sensor_battery:
-      value_template: "{{ states.zwave.ecolink_doorwindow_sensor_3.attributes.battery_level }}"
+      value_template: "{{ states.zwave.door_sensor_living_room_door.attributes.battery_level }}"
       friendly_name: "Living room door sensor battery"
-      entity_id: zwave.ecolink_doorwindow_sensor_3
+      entity_id: zwave.door_sensor_living_room_door
       unit_of_measurement: '%'
 
