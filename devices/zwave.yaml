@@ -1,12 +1,12 @@
-light.linear_lb60z1_dimmable_led_light_bulb_level:
+light.light_front_entry_exterior:
   polling_intensity: 1
   refresh_value: true
   delay: 3
-light.linear_lb60z1_dimmable_led_light_bulb_level_2:
+light.light_studio_exterior:
   polling_intensity: 1
   refresh_value: true
   delay: 3
-light.linear_lb60z1_dimmable_led_light_bulb_level_3:
+light.light_garage_exterior:
   polling_intensity: 1
   refresh_value: true
   delay: 3
