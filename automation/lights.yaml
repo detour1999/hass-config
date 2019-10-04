@@ -107,9 +107,12 @@
     entity_id: binary_sensor.entry_hallway_motion
     to: 'on'
   condition:
-    condition: time
-    after: '07:30'
-    before: '23:30'
+    condition: and
+    conditions:
+    - condition: sun
+      before: sunset
+    - condition: sun
+      after: sunrise
   action:
   - service: homeassistant.turn_on
     entity_id: light.entry_hallway_sconce
@@ -130,10 +133,10 @@
   condition:
     condition: or
     conditions:
-    - condition: time
-      after: '22:00'
-    - condition: time
-      before: '06:00'
+    - condition: sun
+      after: sunset
+    - condition: sun
+      before: sunrise
   action:
   - service: homeassistant.turn_on
     data:
@@ -166,9 +169,12 @@
     entity_id: binary_sensor.utility_room_motion
     to: 'on'
   condition:
-    condition: time
-    after: '07:30'
-    before: '23:30'
+    condition: and
+    conditions:
+    - condition: sun
+      before: sunset
+    - condition: sun
+      after: sunrise
   action:
   - service: homeassistant.turn_on
     data:
@@ -187,10 +193,10 @@
   condition:
     condition: or
     conditions:
-    - condition: time
-      after: '22:00'
-    - condition: time
-      before: '06:00'
+    - condition: sun
+      after: sunset
+    - condition: sun
+      before: sunrise
   action:
   - service: homeassistant.turn_on
     data:
