@@ -1,0 +1,25 @@
+zone:
+  - name: Chicago Friends School
+    latitude: 41.990135
+    longitude: -87.662015
+    radius: 100
+    icon: mdi:spa
+
+  - name: Garage
+    latitude: !secret garage_latitude
+    longitude: !secret garage_longitude
+    radius: 250
+    icon: mdi:garage
+
+  - name: Slocum Home
+    latitude: !secret slocum_latitude
+    longitude: !secret slocum_longitude
+    radius: 30
+    icon: mdi:home-floor-g
+
+  # This will override the default home zone
+  - name: Home
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    radius: 30
+    icon: mdi:home-heart
