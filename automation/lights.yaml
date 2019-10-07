@@ -194,7 +194,11 @@
   condition:
     condition: or
     conditions:
-    action:
+    - condition: sun
+      after: sunset
+    - condition: sun
+      before: sunrise
+  action:
   - service: homeassistant.turn_on
     data:
       entity_id:
