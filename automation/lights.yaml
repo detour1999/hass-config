@@ -6,8 +6,8 @@
     offset: -01:00:00
   action:
   - service: light.turn_on
-    entity_id: light.light_front_entry_exterior
     data:
+      entity_id: light.light_front_entry_exterior
       transition: 20
 
 
@@ -18,8 +18,8 @@
     at: '01:00:00'
   action:
   - service: light.turn_off
-    entity_id: light.light_front_entry_exterior
     data:
+      entity_id: light.light_front_entry_exterior
       transition: 20
 
 
@@ -42,9 +42,9 @@
       below: 150
   action:
   - service: light.turn_on
-    entity_id: light.front_hallway_main_lights
     data:
-      brightness: 255
+      entity_id: light.front_hallway_main_lights
+      brightness: 200
       transition: 20
 
 
@@ -69,8 +69,8 @@
         before: sunrise
   action:
   - service: light.turn_on
-    entity_id: light.front_hallway_main_lights
     data:
+      entity_id: light.front_hallway_main_lights
       brightness: 100
       transition: 20
 
@@ -115,13 +115,14 @@
       after: sunrise
   action:
   - service: homeassistant.turn_on
-    entity_id: light.entry_hallway_sconce
     data:
+      entity_id: light.entry_hallway_sconce
       brightness: 150
       transition: 20
   - service: homeassistant.turn_on
-    entity_id: light.front_hallway_main_lights
     data:
+      entity_id: light.front_hallway_main_lights
+      brightness: 200
       transition: 20
 
 - id: entry_hallway_lights_with_motion_night
@@ -160,7 +161,7 @@
       entity_id:
         - light.entry_hallway_sconce
         - light.front_hallway_main_lights
-      transition: 160
+      transition: 120
 
 - id: utility_room_lights_with_motion_day
   alias: Turn on utility room lights when motion is detected during day
