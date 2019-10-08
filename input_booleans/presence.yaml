@@ -1,0 +1,5 @@
+  is_dylan_home:
+      name: “Dylan’s presence”
+
+  is_sarah_home:
+      name: “Sarah’s presence”

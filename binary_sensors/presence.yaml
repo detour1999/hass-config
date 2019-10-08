@@ -1,0 +1,13 @@
+  - platform: template
+    sensors:
+      presence_yegor:
+        friendly_name: "Dylan"
+        value_template: "{{ is_state('input_boolean.is_dylan_home', 'on') }}"
+        device_class: presence
+
+  - platform: template
+    sensors:
+      presence_yegor:
+        friendly_name: "Sarah"
+        value_template: "{{ is_state('input_boolean.is_sarah_home', 'on') }}"
+        device_class: presence
