@@ -1,3 +1,4 @@
+
 - id: front_lights_on_at_night
   alias: Turn front exterior lights on at night
   trigger:
@@ -10,7 +11,6 @@
       entity_id: light.light_front_entry_exterior
       transition: 20
 
-
 - id: front_lights_off_late
   alias: Turn front exterior lights off late at night
   trigger:
@@ -22,58 +22,18 @@
       entity_id: light.light_front_entry_exterior
       transition: 20
 
-
-- id: entry_lights_on_after_unlock_day
-  alias: Turn entry lights on when unlocked day
+- id: entry_lights_on_after_unlock
+  alias: Turn entry lights on when unlocked 
   trigger:
     - platform: state
       entity_id: lock.lock_front_entry
       to: unlocked
-  condition:
-    condition: and
-    conditions:
-    - condition: sun
-      before: sunset
-    - condition: sun
-      after: sunrise
-    - condition: numeric_state
-      entity_id: light.front_hallway_main_lights
-      value_template: '{% if states.light.front_hallway_main_lights.state == "on"  %}{{ states.light.front_hallway_main_lights.attributes.brightness }}{% else %}0{% endif %}'
-      below: 150
   action:
   - service: light.turn_on
     data:
       entity_id: light.front_hallway_main_lights
-      brightness: 200
+      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}150{% else %}100{% endif %}'
       transition: 20
-
-
-- id: entry_lights_on_after_unlock_night
-  alias: Turn entry lights on when unlocked night
-  trigger:
-  - platform: state
-    entity_id: lock.lock_front_entry
-    to: unlocked
-  condition:
-    condition: and
-    conditions:
-    - condition: numeric_state
-      entity_id: light.front_hallway_main_lights
-      value_template: '{% if states.light.front_hallway_main_lights.state == "on"  %}{{ states.light.front_hallway_main_lights.attributes.brightness }}{% else %}0{% endif %}'
-      below: 80
-    - condition: or
-      conditions:
-      - condition: sun
-        after: sunset
-      - condition: sun
-        before: sunrise
-  action:
-  - service: light.turn_on
-    data:
-      entity_id: light.front_hallway_main_lights
-      brightness: 100
-      transition: 20
-
 
 - id: turn_on_all_backyard_sconces_with_house_sconces
   alias: Turn on all backyard sconces with house sconces
