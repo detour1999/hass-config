@@ -1,3 +1,4 @@
+
 - id: front_lights_on_at_night
   alias: Turn front exterior lights on at night
   trigger:
@@ -10,7 +11,6 @@
       entity_id: light.light_front_entry_exterior
       transition: 20
 
-
 - id: front_lights_off_late
   alias: Turn front exterior lights off late at night
   trigger:
@@ -22,58 +22,18 @@
       entity_id: light.light_front_entry_exterior
       transition: 20
 
-
-- id: entry_lights_on_after_unlock_day
-  alias: Turn entry lights on when unlocked day
+- id: entry_lights_on_after_unlock
+  alias: Turn entry lights on when unlocked 
   trigger:
     - platform: state
       entity_id: lock.lock_front_entry
       to: unlocked
-  condition:
-    condition: and
-    conditions:
-    - condition: sun
-      before: sunset
-    - condition: sun
-      after: sunrise
-    - condition: numeric_state
-      entity_id: light.front_hallway_main_lights
-      value_template: '{% if states.light.front_hallway_main_lights.state == "on"  %}{{ states.light.front_hallway_main_lights.attributes.brightness }}{% else %}0{% endif %}'
-      below: 150
   action:
   - service: light.turn_on
     data:
       entity_id: light.front_hallway_main_lights
-      brightness: 200
+      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}150{% else %}100{% endif %}'
       transition: 20
-
-
-- id: entry_lights_on_after_unlock_night
-  alias: Turn entry lights on when unlocked night
-  trigger:
-  - platform: state
-    entity_id: lock.lock_front_entry
-    to: unlocked
-  condition:
-    condition: and
-    conditions:
-    - condition: numeric_state
-      entity_id: light.front_hallway_main_lights
-      value_template: '{% if states.light.front_hallway_main_lights.state == "on"  %}{{ states.light.front_hallway_main_lights.attributes.brightness }}{% else %}0{% endif %}'
-      below: 80
-    - condition: or
-      conditions:
-      - condition: sun
-        after: sunset
-      - condition: sun
-        before: sunrise
-  action:
-  - service: light.turn_on
-    data:
-      entity_id: light.front_hallway_main_lights
-      brightness: 100
-      transition: 20
-
 
 - id: turn_on_all_backyard_sconces_with_house_sconces
   alias: Turn on all backyard sconces with house sconces
@@ -99,55 +59,50 @@
     - light.light_studio_exterior
     - light.light_garage_exterior
 
+- id: turn_on_all_holiday_with_main_holiday
+  alias: Turn on all holiday lights with main holiday lights
+  trigger:
+    - platform: state
+      entity_id: light.living_room_holiday_lights
+      to: "on"
+  action:
+  - service: switch.turn_on
+    entity_id:
+    - switch.neo_coolcam_power_plug_12a_switch
+    - switch.plug_switch_front_hallway
 
-- id: entry_hallway_lights_with_motion_day
+- id: turn_off_all_holiday_with_main_holiday
+  alias: Turn off all holiday lights with main holiday lights
+  trigger:
+  - platform: state
+    entity_id: light.living_room_holiday_lights
+    to: "off"
+  action:
+  - service: switch.turn_off
+    entity_id:
+    - switch.neo_coolcam_power_plug_12a_switch
+    - switch.plug_switch_front_hallway
+
+
+- id: entry_hallway_lights_with_motion_on
   alias: Turn on entry hallway lights when the motion is detected during day
   trigger:
   - platform: state
     entity_id: binary_sensor.entry_hallway_motion
     to: 'on'
-  condition:
-    condition: and
-    conditions:
-    - condition: sun
-      before: sunset
-    - condition: sun
-      after: sunrise
   action:
   - service: homeassistant.turn_on
     data:
       entity_id: light.entry_hallway_sconce
-      brightness: 150
+      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}150{% else %}100{% endif %}'
       transition: 20
   - service: homeassistant.turn_on
     data:
       entity_id: light.front_hallway_main_lights
-      brightness: 200
+      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}200{% else %}120{% endif %}'
       transition: 20
 
-- id: entry_hallway_lights_with_motion_night
-  alias: Turn on entry hallway lights when the motion is detected at night
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.entry_hallway_motion
-    to: 'on'
-  condition:
-    condition: or
-    conditions:
-    - condition: sun
-      after: sunset
-    - condition: sun
-      before: sunrise
-  action:
-  - service: homeassistant.turn_on
-    data:
-      entity_id:
-        - light.entry_hallway_sconce
-        - light.front_hallway_main_lights
-      brightness: 30
-      transition: 20
-
-- id: entry_hallway_lights_with_motion
+- id: entry_hallway_lights_with_motion_off
   alias: Turn off entry hallway lights 5 minutes after no motion
   trigger:
     platform: state
@@ -163,61 +118,33 @@
         - light.front_hallway_main_lights
       transition: 120
 
-- id: utility_room_lights_with_motion_day
+- id: utility_room_lights_with_motion_on
   alias: Turn on utility room lights when motion is detected during day
   trigger:
   - platform: state
     entity_id: binary_sensor.utility_room_motion
     to: 'on'
-  condition:
-    condition: and
-    conditions:
-    - condition: sun
-      before: sunset
-    - condition: sun
-      after: sunrise
   action:
   - service: homeassistant.turn_on
     data:
       entity_id:
         - light.hue_white_lamp_1
         - light.hue_color_downlight_2
-      brightness: 150
+      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}200{% else %}120{% endif %}'
       transition: 20
 
-- id: utility_room_lights_with_motion_night
-  alias: Turn on utility room lights when motion is detected at night
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.utility_room_motion
-    to: 'on'
-  condition:
-    condition: or
-    conditions:
-    - condition: sun
-      after: sunset
-    - condition: sun
-      before: sunrise
-  action:
-  - service: homeassistant.turn_on
-    data:
-      entity_id:
-        - light.hue_white_lamp_1
-        - light.hue_color_downlight_2
-      brightness: 30
-
-- id: utility_room_lights_with_motion
+- id: utility_room_lights_with_motion_off
   alias: Turn off utility room lights 2 minutes after no motion
   trigger:
     platform: state
     entity_id: binary_sensor.utility_room_motion
     to: 'off'
     for:
-      minutes: 2
+      minutes: 5
   action:
     service: homeassistant.turn_off
     data:
       entity_id:
         - light.hue_white_lamp_1
         - light.hue_color_downlight_2
-      transition: 20
+      transition: 120
