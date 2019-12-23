@@ -32,8 +32,10 @@
   - service: light.turn_on
     data:
       entity_id: light.front_hallway_main_lights
-      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}150{% else %}100{% endif %}'
       transition: 20
+    data_template:
+      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}150{% else %}100{% endif %}'
+
 
 - id: turn_on_all_backyard_sconces_with_house_sconces
   alias: Turn on all backyard sconces with house sconces
@@ -94,13 +96,15 @@
   - service: homeassistant.turn_on
     data:
       entity_id: light.entry_hallway_sconce
-      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}150{% else %}100{% endif %}'
       transition: 20
+    data_template:
+      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}150{% else %}100{% endif %}'
   - service: homeassistant.turn_on
     data:
       entity_id: light.front_hallway_main_lights
-      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}200{% else %}120{% endif %}'
       transition: 20
+    data_template:
+      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}200{% else %}120{% endif %}'
 
 - id: entry_hallway_lights_with_motion_off
   alias: Turn off entry hallway lights 5 minutes after no motion
@@ -130,8 +134,9 @@
       entity_id:
         - light.hue_white_lamp_1
         - light.hue_color_downlight_2
-      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}200{% else %}120{% endif %}'
       transition: 20
+    data_template:
+      brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}200{% else %}120{% endif %}'
 
 - id: utility_room_lights_with_motion_off
   alias: Turn off utility room lights 2 minutes after no motion
