@@ -58,3 +58,5 @@
       entity_id: zwave.door_sensor_living_room_door
       unit_of_measurement: '%'
 
+- platform: awair
+  access_token: !secret awair_access_token
