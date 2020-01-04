@@ -60,3 +60,8 @@
 
 - platform: awair
   access_token: !secret awair_access_token
+  devices:
+    - uuid: "awair-glow-c_4331"
+    - uuid: "awair-glow-c_3547"
+    - uuid: "awair-glow-c_3766"
+    - uuid: "awair-glow-c_3459"
