@@ -95,7 +95,7 @@
   action:
   - service: homeassistant.turn_on
     data:
-      entity_id: light.entry_hallway_sconce
+      entity_id: light.entry_hallway_light
       transition: 20
     data_template:
       brightness: '{% if now().hour > 22 %}30{% elif now().hour < 6 %}30{% elif now().hour < 18 %}150{% else %}100{% endif %}'
@@ -118,7 +118,7 @@
     service: homeassistant.turn_off
     data:
       entity_id:
-        - light.entry_hallway_sconce
+        - light.entry_hallway_light
         - light.front_hallway_main_lights
       transition: 120
 
