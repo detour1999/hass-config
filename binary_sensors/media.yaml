@@ -4,5 +4,6 @@
   - platform: ping
     host: retropie
     name: retropie_binary_sensor
+    unique_id: ping.binary_sensor.retropie_binary_sensor
     count: 1
     scan_interval: 30
