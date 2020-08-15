@@ -2,7 +2,7 @@
     sensors:
       presence_dylan:
         friendly_name: "Dylan"
-        unique_id: template.sensor.presence_dylan
+        unique_id: "template.sensor.presence_dylan"
         value_template: "{{ is_state('input_boolean.is_dylan_home', 'on') }}"
         device_class: presence
 
@@ -10,6 +10,6 @@
     sensors:
       presence_sarah:
         friendly_name: "Sarah"
-        unique_id: template.sensor.presence_sarah
+        unique_id: "template.sensor.presence_sarah"
         value_template: "{{ is_state('input_boolean.is_sarah_home', 'on') }}"
         device_class: presence
