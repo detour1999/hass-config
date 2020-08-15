@@ -11,7 +11,7 @@
   - service: media_player.media_play
     data:
       entity_id: media_player.kids_bedroom
-      source: 'kids bedtime music'
+      source: 'Pink Floyd Bedtime'
 
 
 - id: pause_kids_bedtime_music
@@ -22,7 +22,7 @@
   action:
   - service: media_player.turn_off
     data:
-      entity_id: media_player.kids_bedroom
+      entity_id: media_player.kids_bedroom_sonos
 
 
 - id: pause_master_bedtime_music
@@ -33,7 +33,7 @@
   action:
   - service: media_player.turn_off
     data:
-      entity_id: media_player.master_bedroom
+      entity_id: media_player.master_bedroom_sonos
 
 - id: pause_master_bedtime_music_1
   alias: Stop playing master bedtime music 1
@@ -43,7 +43,7 @@
   action:
   - service: media_player.turn_off
     data:
-      entity_id: media_player.master_bedroom
+      entity_id: media_player.master_bedroom_sonos
 
 - id: pause_master_bedtime_music_2
   alias: Stop playing master bedtime music 2
@@ -53,7 +53,7 @@
   action:
   - service: media_player.turn_off
     data:
-      entity_id: media_player.master_bedroom
+      entity_id: media_player.master_bedroom_sonos
 
 - id: pause_master_bedtime_music_3
   alias: Stop playing master bedtime music 3
@@ -63,7 +63,7 @@
   action:
   - service: media_player.turn_off
     data:
-      entity_id: media_player.master_bedroom
+      entity_id: media_player.master_bedroom_sonos
 
 - id: turn_off_retropie_plug_when_retropie_turned_off
   alias: Turn off retropie plug when retropie turned off
